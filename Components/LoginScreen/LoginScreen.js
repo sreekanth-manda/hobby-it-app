@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Alert, Button, Text, TextInput, StyleSheet } from 'react-native';
-import HomeScreen from '../HomeScreen/HomeScreen';
 import getHobbies from '../../Actions/LoginScreenActions';
 import { connect } from 'react-redux';
 
@@ -16,9 +15,8 @@ class LoginScreen extends Component {
   signIn = async () => {
     if (this.state.username === 'S' &&
         this.state.password === 'S') {
-          this.props.getHobbies();
+          await this.props.getHobbies();
           console.log('Sree', this.props.hobbies.length);
-          this.props.hobbies.length !== 0 && <HomeScreen hobbies={thishobbies}/>
     }
   }
 

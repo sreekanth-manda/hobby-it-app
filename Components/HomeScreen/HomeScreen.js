@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, Alert, TouchableOpacity } from 'react-native';
 
-export default class HomeScreen extends Component({ hobbies }) {
+export default class HomeScreen extends Component() {
   render() {
     return (
-      <Text>this.props.hobbies</Text>
+      <Text>Hello</Text>
     );
   }
 }
