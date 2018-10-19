@@ -4,6 +4,8 @@ export default function reducer(state = { hobbies: [] }, action) {
       return { ...state, hobbies: action.hobbies, ready: false };
     case 'GET_HOBBIES_SUCCESS':
       return { ...state, ready: true, hobbies: action.payload.hobbies };
+    case 'GET_HOBBIES_FAILED':
+      return { ...state, ready: true, hobbies: [] };
     default:
       return state;
   }

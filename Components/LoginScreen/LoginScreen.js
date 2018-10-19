@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Alert, Button, Text, TextInput, StyleSheet } from 'react-native';
 import getHobbies from '../../Actions/LoginScreenActions';
 import { connect } from 'react-redux';
+import { createStackNavigator } from 'react-navigation';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class LoginScreen extends Component {
         this.state.password === 'S') {
           await this.props.getHobbies();
           console.log('Sree', this.props.hobbies.length);
+          this.props.navigation.navigate('HomeScreen');
     }
   }
 

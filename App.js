@@ -6,8 +6,8 @@ import { Provider, connect } from 'react-redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import thunk from 'redux-thunk';
-import { createStackNavigator } from 'react-navigation';
 import reducer from './Reducers/reducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const requestClient = axios.create({
   baseURL: 'http://127.0.0.1:5000',
@@ -33,10 +33,11 @@ const clientOptions = {
 
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(
-    thunk,
-    axiosMiddleware(requestClient, clientOptions)
+  composeWithDevTools(
+    applyMiddleware(
+      thunk,
+      axiosMiddleware(requestClient, clientOptions)
+    )
   )
 );
 
