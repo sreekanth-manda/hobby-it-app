@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import LandingScreen from './Components/LandingScreen/LandingScreen'
+import LandingScreen from './Components/Screens/LandingScreen/LandingScreen'
 import { createStore, applyMiddleware } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import thunk from 'redux-thunk';
-import { createStackNavigator } from 'react-navigation';
 import reducer from './Reducers/reducer';
 
 const requestClient = axios.create({
@@ -33,13 +32,12 @@ const clientOptions = {
 
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(
     thunk,
     axiosMiddleware(requestClient, clientOptions)
   )
 );
-
 
 export default class App extends React.Component {
   render() {

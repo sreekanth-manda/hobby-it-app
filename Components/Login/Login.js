@@ -14,9 +14,10 @@ class LoginScreen extends Component {
 
   signIn = async () => {
     if (this.state.username === 'S' &&
-        this.state.password === 'S') {
-          await this.props.getHobbies();
-          console.log('Sree', this.props.hobbies.length);
+      this.state.password === 'S') {
+        await this.props.getHobbies();
+        console.log('Sree', this.props.hobbies.length);
+        this.props.navigate('HomeScreen');
     }
   }
 

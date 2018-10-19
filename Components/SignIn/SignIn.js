@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
-import LoginScreen from '../LoginScreen/LoginScreen';
+import Login from '../Login/Login';
 
 export default class SignInScreen extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class SignInScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.isLoginShown && <LoginScreen />}
+        {this.state.isLoginShown && <Login />}
         {!this.state.isLoginShown &&
           <View>
             <TouchableOpacity onPress={this.onClickSign}>
